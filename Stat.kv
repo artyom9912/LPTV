@@ -1,0 +1,27 @@
+<Cell>
+    padding: 5,0
+    halign: 'left'
+    canvas.before:
+        Color:
+            rgba: root.color
+        Rectangle:
+            source: root.source
+            pos: self.pos
+            size: self.size
+    Label:
+        id:cell
+        markup: True
+        text_size: self.size
+        halign: root.halign
+        valign: 'center'
+        font_name: root.font_name
+        font_size: root.font_size
+        color: root.fcolor
+        text:root.text
+
+
+<Table>
+    size_hint: [1,1]
+    spacing: 2
+    padding:0
+    background_color: [.8,.8,.8,1]

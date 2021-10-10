@@ -1,0 +1,463 @@
+<MyButton@Button>
+    background_color: 1,1,1,1
+    background_normal: ''
+
+<Cell>
+    padding: [5, 10]
+    canvas.before:
+        Color:
+            rgba: root.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        id:cell
+        markup: True
+        font_name: root.font_name
+        font_size: root.font_size
+        color: 0,0,0,1
+        text:root.text
+
+<RV>:
+    viewclass: 'StageBox'
+    RecycleBoxLayout:
+        spacing: 4
+        default_size: None, dp(235)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
+<StageBox>
+    size_hint: 1,.9
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 2
+        BoxLayout:
+            id: HoursBox
+            size_hint: .045,1
+            orientation: 'vertical'
+            spacing:1
+            Cell:
+                text: '1'
+            Cell:
+                text: '2'
+            Cell:
+                text: '3'
+            Cell:
+                text: '4'
+            Cell:
+                text: '5'
+            Cell:
+                text: '6'
+            Cell:
+                text: '7'
+            Cell:
+                text: '8'
+            Cell:
+                text: '9'
+            Cell:
+                text: '10'
+            Cell:
+                text: '11'
+            Cell:
+                text: '12'
+        Cell:
+            id: StageCell
+            text: root.text
+            size_hint: .09,1
+        GridLayout:
+            id: GridBox
+            spacing: 1
+            cols: 30
+            rows: 12
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+            MyButton:
+

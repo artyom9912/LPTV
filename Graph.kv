@@ -1,0 +1,82 @@
+<Cell>
+    padding: 5,0
+    halign: 'left'
+    canvas.before:
+        Color:
+            rgba: root.color
+        Rectangle:
+            source: root.source
+            pos: self.pos
+            size: self.size
+    Label:
+        id:cell
+        markup: True
+        text_size: self.size
+        halign: root.halign
+        valign: 'center'
+        font_name: root.font_name
+        font_size: root.font_size
+        color: root.fcolor
+        text:root.text
+<Swipe>
+    orientation: 'horizontal'
+    spacing: 4
+    Button:
+        size_hint: [.2,1]
+        text: '<'
+        background_color: [.7,.7,.7,1]
+        background_normal: ''
+        font_size: '18dp'
+        id: LeftBtn
+    Button:
+        text: root.text
+        background_color: [.9,.9,.9,1]
+        halign: 'center'
+        background_normal: ''
+        size_hint: [.6,1]
+        color: [0,0,0,1]
+        font_size: '18dp'
+        id: MidBtn
+    Button:
+        background_color: [.7,.7,.7,1]
+        background_normal: ''
+        size_hint: [.2,1]
+        font_size: '18dp'
+        text: '>'
+        id: RightBtn
+
+<SCREEN>
+    padding: 0,0,40,5
+    orientation: 'vertical'
+    spacing:10
+    Cell:
+        size_hint:[1,.01]
+        color:[.7,.7,.7,.5]
+    BoxLayout:
+        padding: 17, 5, 10, 0
+        size_hint: [1, .11]
+        orientation: 'horizontal'
+        spacing: 28
+        Cell:
+            size_hint: [.25, 1]
+            font_size: '29dp'
+            halign: 'center'
+            font_name: 'src/futural'
+            text: root.project
+        Swipe:
+            size_hint: [.14,1]
+            id: MonthBtn
+            text: root.month
+        Swipe:
+            size_hint: [.14,1]
+            id: YearBtn
+            text: root.year
+        Widget:
+            size_hint: [.2, 1]
+
+
+<Table>
+    size_hint: [.32,1]
+    spacing: 3
+    padding:78,10,0,0
+    background_color: [.8,.8,.8,1]

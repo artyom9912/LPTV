@@ -1,0 +1,137 @@
+<UserLabel>
+    canvas:
+        Color:
+            rgba: 1,.8,0,1
+        Ellipse:
+            segments: 1000
+            size: 40, 40
+            pos: self.pos
+    Label:
+        text: root.text
+        id: userLabel
+        markup: True
+        color: 0,0,0,1
+
+
+<MyTable>
+    padding: root.padding
+    orientation: root.orientation
+    spacing: 3
+    canvas.before:
+        Color:
+            rgba: root.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<MyLabel>
+    color: 0,0,0,1
+    text_size: self.size
+    halign: 'left'
+    valign: 'center'
+    markup: True
+
+<MyButton>
+    id: root.id
+    text:''
+    background_color: 1,1,1,1
+    background_normal:''
+<NextButton>
+    text:''
+    markup: True
+    color:[0,0,0,.5]
+    on_release: app.update(self)
+    background_color: root.fcolor
+    background_normal:root.src
+    background_down:'src/btnPress.png'
+<TopBox>
+    id: Top
+    orientation: 'horizontal'
+    size_hint: [1, .1]
+    MyLabel:
+        size_hint: [.4, 1]
+        font_size: 24
+        padding: [22, 5]
+        id: ProjectName
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: [.6, 1]
+        id: CentralBox
+        Widget:
+            id: none
+            size_hint: [1,.55]
+        BoxLayout:
+            id: MessageBox
+            orientation: 'horizontal'
+            canvas.before:
+                Color:
+                    rgba: 1,0,0,1
+                Ellipse:
+                    pos: 0, 0
+                    size: 30,30
+            Image:
+                id: MessageImg
+                source: 'src/done.png'
+                size_hint: [.05, 1]
+                size_hint_y: 10
+            MyLabel:
+                id: MessageLabel
+                text: ''
+                size_hint:[.5, 1]
+                font_size: 15
+                color: [0, 0, 0, 1]
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: [.2, 1]
+        id: UserBox
+
+<Cell>
+    padding: 5, 10
+    canvas.before:
+        Color:
+            rgba: root.color
+        Rectangle:
+            source: root.source
+            pos: self.pos
+            size: self.size
+    Label:
+        id:cell
+        markup: True
+        font_name: root.font_name
+        font_size: root.font_size
+        color: 0,0,0,1
+        text:root.text
+
+<SV>:
+    GridLayout:
+        cols: 1
+        id: Body
+        size_hint_y: None
+        spacing: 4
+        height: self.minimum_height
+        orientation: 'vertical'
+
+<StageBox>
+    #size_hint: 1,.2
+    height: 256
+    size_hint_y: None
+    BoxLayout:
+        id: MainBox
+        orientation: 'horizontal'
+        spacing: 2
+        BoxLayout:
+            id: HoursBox
+            size_hint: .045,1
+            orientation: 'vertical'
+            spacing:1
+        Cell:
+            id: StageCell
+            text: root.text
+            halign: 'center'
+            size_hint_x: None
+            width: 109.4
+        BoxLayout:
+            orientation: 'horizontal'
+            id: GridBox
+            spacing: 1
+
