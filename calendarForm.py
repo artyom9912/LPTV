@@ -293,7 +293,7 @@ class StageBox(BoxLayout):
         #SELECT userId, projectId, stageId, dateStamp, hours
         stage = stage.split('\n')[0].replace(' ','')
 
-        result = db.loadReports(db.GetStageID(stage),PROJECT, curMonth)
+        result = db.loadReports(db.GetStageID(stage),PROJECT, curMonth, curYear)
         if len(result)==0: return
         for item in result:
             for i in range(1,item[4]+1):

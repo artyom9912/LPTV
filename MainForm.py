@@ -1,7 +1,7 @@
 import datetime
 import subprocess
 import sys
-
+import traceback
 from kivy import Config
 from kivy.properties import ListProperty, StringProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -262,23 +262,36 @@ class PROJECT(BoxLayout):
         SM.add_widget(AddPrj)
         SM.current = 'AddPrj'
 
+
     def onClickProj(self, instance):
         PROJ=instance.parent.ids.projectBox.text
         # subprocess.run([sys.executable, 'C:/Users/ekosh/Desktop/artemkens/LPTV/dist/LPTV/Calendar.exe', USER,
         #                 instance.parent.ids.projectBox.text], shell=True)
         #subprocess.call(['C:/Users/ekosh/Desktop/artemkens/LPTV/dist/LPTV/Calendar.exe',USER,PROJ])
-        subprocess.run([sys.executable,"calendarForm.py",USER,PROJ], shell=True)
+        def startFork( PROJ):
+            subprocess.run([sys.executable, "calendarForm.py", USER, PROJ], shell=True)
+        T_proj = Thread(target=startFork, args=(PROJ,))
+        T_proj.start()
+        #subprocess.run([sys.executable,"calendarForm.py",USER,PROJ], shell=True)
 
     def onClickProjStat(self, instance):
-        subprocess.call(['graphic.exe', '',
-                        instance.parent.ids.projectBox.text, 'True'])
+        # subprocess.call(['graphic.exe', '',
+        #                 instance.parent.ids.projectBox.text, 'True'])
+        def startFork(instance):
+            subprocess.call(['graphic.exe', '', instance.parent.ids.projectBox.text, 'True'])
+        T_projStat = Thread(target=startFork, args=(instance,))
+        T_projStat.start()
 
     def onClickUserStat(self, instance):
         db = DB()
         if instance.text == '': return
         name = db.GetFullName(instance.text)
-        subprocess.call(['graphic.exe', name,
-                        instance.parent.parent.ids.projectBox.text, 'False'])
+
+        def startFork(instance):
+            subprocess.call(['graphic.exe', name, instance.parent.parent.ids.projectBox.text, 'False'])
+
+        T_userStat = Thread(target=startFork, args=(instance,))
+        T_userStat.start()
 
     def __init__(self, name, sqr, level, **kwargs):
         super(PROJECT, self).__init__(**kwargs)
@@ -445,4 +458,8 @@ class MainApp(App):
 
 
 if __name__ == "__main__":
-    MainApp().run()
+    try:
+        MainApp().run()
+    except Exception as e:
+        e_type, e_val, e_tb = sys.exc_info()
+        traceback.print_exception(e_type, e_val, e_tb, file=open('log.txt', 'a'))

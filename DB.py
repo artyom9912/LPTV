@@ -9,7 +9,7 @@ class DB():
     user = config[1].split('=')[1].replace('\n','')
     password = config[2].split('=')[1].replace('\n','')
     db= config[3].split('=')[1].replace('\n','')
-    connect = pymysql.connect(ip, user, password, db, charset='utf8')
+    connect = pymysql.connect(host=ip, user=user, password=password, database=db, charset='utf8')
     # def __init__(self):
     #     self.connect = pymysql.connect('localhost', 'root', 'root', 'lptv', charset='utf8')
 
@@ -93,12 +93,14 @@ class DB():
     def InsertReport(self, settings):
 
             cur = self.connect.cursor()
-            cur.execute("INSERT INTO main (userId, projectId, stageId, dateStamp, hours) VALUES "
-                        "({0},{1},{2},'{3}',{4})".format(self.GetUserID(settings['user']),
+            q = "INSERT INTO main (userId, projectId, stageId, dateStamp, hours) VALUES " \
+                "({0},{1},{2},'{3}',{4})".format(self.GetUserID(settings['user']),
                                                 self.GetProjectID(settings['project']),
                                                 self.GetStageID(settings['stage']),
                                                 datetime.datetime.strptime(settings['date'],'%Y-%m-%d').date(),
-                                                settings['hours']))
+                                                settings['hours'])
+            cur.execute(q)
+            print(q)
             self.connect.commit()
 
     def DeleteReport(self, settings):
@@ -110,6 +112,7 @@ class DB():
                         self.GetProjectID(settings['project']),
                         self.GetStageID(settings['stage']),
                         datetime.datetime.strptime(settings['date'],'%Y-%m-%d').date()))
+            print(f"DELETE main {datetime.datetime.strptime(settings['date'],'%Y-%m-%d').date()}")
             self.connect.commit()
 
     def GetLevel(self,project):
@@ -132,13 +135,14 @@ class DB():
                         self.GetStageID(settings['stage']),
                         datetime.datetime.strptime(settings['date'],'%Y-%m-%d').date(),
                         settings['hours']))
+            print(f"UPDATE  main {datetime.datetime.strptime(settings['date'],'%Y-%m-%d').date()}")
             self.connect.commit()
 
-    def loadReports(self, stage, project, month):
+    def loadReports(self, stage, project, month, year):
             cur = self.connect.cursor()
             string = "SELECT userId, projectId, stageId, dateStamp, hours FROM main " \
                   "WHERE stageId ="+str(stage)+" AND projectId = "+str(self.GetProjectID(project))+" "\
-                  "and month(datestamp) = '"+str(month)+"';"
+                  "and month(datestamp) = '"+str(month)+"' and year(datestamp) = '"+str(year)+"';"
             cur.execute(string)
 
             rows = cur.fetchall()
